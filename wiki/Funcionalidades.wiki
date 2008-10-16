@@ -10,36 +10,36 @@ Segue a lista das Funcionalidades já desenvolvidas nesta versão v0.1:
 Desc: Transformar automaticamente o texto digitado em minúscula ou maiúscula.
 Propriedade: capsType()
 Valores:
-    - normal : Sem case [DEFAULT]
+    - normal : Sem case -DEFAULT-
     - lowercase : Transforma em Minúscula
     - upercase : Transforma em Maiúscula
     - init : Transforma a primeira letra de cada palavra em Maiúscula o resto em minúscula.
 
-  * AUTO TAB ON <ENTER> KEY PRESS
-Desc: Automaticamente coloca o foco no próximo componente ao pressionar a tecla <ENTER>. Realiza a mesma função da tecla <TAB>
+  * AUTO TAB ON -ENTER- KEY PRESS
+Desc: Automaticamente coloca o foco no próximo componente ao pressionar a tecla -ENTER-. Realiza a mesma função da tecla -TAB-
 Propriedade: nextFocusOnEnter()
 Valores:
-    - true : Ativa função [DEFAULT]
+    - true : Ativa função -DEFAULT-
     - false : Inativa função
 Eventos:
-    - enterPressed : Disparado ao pressionar a tecla <ENTER>. Pode ser usado para implementações customizadas.
+    - enterPressed : Disparado ao pressionar a tecla -ENTER-. Pode ser usado para implementações customizadas.
 
   * AUTO RESTRICT
 Desc: Restrições de input de texto já implementadas.
 Propriedade: onlyRestrict()
 Valores:
-    - none : Não realiza restrição [DEFAULT]
+    - none : Não realiza restrição -DEFAULT-
     - number : Aceita apenas caracteres numéricos
     - alphabetic : Aceita apenas texto
     - alphabeticNoSpecial : Aceita apenas texto, porém não aceita caracteres especiais como : @ - / * & ...
 Observação: Para restrições customizadas pode-se continuar utilizando a propriedade restrict().
 
   * EMBEDED VALIDATORS
-Desc: Validação embutida. Não será mais necessário criar <Validators> por fora para cada campo. Já existirá as validações automáticas apenas setando uma propriedade do MasterTextInput. As mensagens de Validação já são automaticamente traduzidas para o Português/Inglês/Espanhol sem a necessidade de nenhum tipo de implementação.
+Desc: Validação embutida. Não será mais necessário criar -Validators- por fora para cada campo. Já existirá as validações automáticas apenas setando uma propriedade do MasterTextInput. As mensagens de Validação já são automaticamente traduzidas para o Português/Inglês/Espanhol sem a necessidade de nenhum tipo de implementação.
 
 Propriedade: validator() 
 Valores:
-    - none : Sem validação automática [DEFAULT]
+    - none : Sem validação automática -DEFAULT-
     - email : Validação de E-mail
     - phone : Validação de telefone
     - number : Validação de número
@@ -54,7 +54,7 @@ Observações:
 Propriedade: ValidationLanguage()
 Desc: Esta propriedade terá a língua que será mostrada as mensagens de validação dos Validadores do MasterTextInput.
 Valores:
-    - portuguese : Todas as mensagens de validação ficam em Português. [DEFAULT]
+    - portuguese : Todas as mensagens de validação ficam em Português. -DEFAULT-
     - english : Mensagens de validação em inglês.
     - spanish : Mensagens de validação em espanhol.
 Observações:
