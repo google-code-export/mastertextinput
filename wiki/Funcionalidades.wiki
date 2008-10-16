@@ -1,0 +1,68 @@
+= Introdução =
+
+O MasterTextInput estende as características de um TextInput com novas funcionalidades e facilidades implementada para nos ajudar no nosso dia-a-dia.
+
+
+= Detalhes =
+
+Segue a lista das Funcionalidades já desenvolvidas nesta versão v0.1:
+  * AUTO TEXT CASE TYPE
+Desc: Transformar automaticamente o texto digitado em minúscula ou maiúscula.
+Propriedade: capsType()
+Valores:
+    - normal : Sem case [DEFAULT]
+    - lowercase : Transforma em Minúscula
+    - upercase : Transforma em Maiúscula
+    - init : Transforma a primeira letra de cada palavra em Maiúscula o resto em minúscula.
+
+  * AUTO TAB ON <ENTER> KEY PRESS
+Desc: Automaticamente coloca o foco no próximo componente ao pressionar a tecla <ENTER>. Realiza a mesma função da tecla <TAB>
+Propriedade: nextFocusOnEnter()
+Valores:
+    - true : Ativa função [DEFAULT]
+    - false : Inativa função
+Eventos:
+    - enterPressed : Disparado ao pressionar a tecla <ENTER>. Pode ser usado para implementações customizadas.
+
+  * AUTO RESTRICT
+Desc: Restrições de input de texto já implementadas.
+Propriedade: onlyRestrict()
+Valores:
+    - none : Não realiza restrição [DEFAULT]
+    - number : Aceita apenas caracteres numéricos
+    - alphabetic : Aceita apenas texto
+    - alphabeticNoSpecial : Aceita apenas texto, porém não aceita caracteres especiais como : @ - / * & ...
+Observação: Para restrições customizadas pode-se continuar utilizando a propriedade restrict().
+
+  * EMBEDED VALIDATORS
+Desc: Validação embutida. Não será mais necessário criar <Validators> por fora para cada campo. Já existirá as validações automáticas apenas setando uma propriedade do MasterTextInput. As mensagens de Validação já são automaticamente traduzidas para o Português/Inglês/Espanhol sem a necessidade de nenhum tipo de implementação.
+
+Propriedade: validator() 
+Valores:
+    - none : Sem validação automática [DEFAULT]
+    - email : Validação de E-mail
+    - phone : Validação de telefone
+    - number : Validação de número
+    - string : Validação de string
+    - date : Validação de data
+Observações:
+    - Todas as propriedades específicas de cada validador também existe no MasterTextInput. Como por exemplo FormatInput para validador de data, MaxValue para Number, MaxLenght para String e assim para todas as outras propriedades padrões dos validadores.
+    - Existe um objeto Publico chamado "currentValidator" ele irá sempre apontar para o validador atual do seu MasterTextInput, assim você poderá via AS modificar qualquer característica do validador dinamicamente, associar ele a um Array para validação agrupada e qualquer outra função.
+    - As propriedades Trigger() e TriggerEvent() existem no MasterTextInput para que seja possível definir quando será disparada a validação do campo. O momento padrão é ao sair o foco do componente.
+    - Todas as validações estão com as características implementadas por DEFAULT do Brasil, como por exemplo, a formatação da data como DD/MM/YYYY, separador decimal como (,) separador de milhar como (.) e assim sucessivamente. 
+
+Propriedade: ValidationLanguage()
+Desc: Esta propriedade terá a língua que será mostrada as mensagens de validação dos Validadores do MasterTextInput.
+Valores:
+    - portuguese : Todas as mensagens de validação ficam em Português. [DEFAULT]
+    - english : Mensagens de validação em inglês.
+    - spanish : Mensagens de validação em espanhol.
+Observações:
+    - Pode-se modificar a linguagem dinamicamente setando este propriedade via Action Script.
+
+  * CLEAR BUTTON
+Desc: Mostrará um botão com um ícone em "X" no momento em que algum texto for digitado no MasterTextInput. Ao clicar o botão o campo será limpo.
+Propriedade: showClearButton()
+Valores:
+    - true : Mostra botão [DEFAULT]
+    - false : Não mostra botão
