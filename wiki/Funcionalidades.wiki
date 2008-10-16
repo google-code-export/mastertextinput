@@ -1,3 +1,4 @@
+#labels Featured
 = Introdução =
 
 O MasterTextInput estende as características de um TextInput com novas funcionalidades e facilidades implementada para nos ajudar no nosso dia-a-dia.
