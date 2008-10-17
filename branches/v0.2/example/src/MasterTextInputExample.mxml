@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" xmlns:ns1="com.flexpernambuco.controls.*"
+	backgroundColor="#333333" themeColor="#333333" color="#333333"
+	paddingBottom="30" paddingLeft="30" paddingRight="30" paddingTop="30" pageTitle="MasterTextInput v0.2 - Examples"
+	creationComplete="init()">
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			
+			
+			private function init():void 
+			{
+				validEmail.currentValidator.trigger = btnValid;
+				validEmail.currentValidator.triggerEvent = "click";
+				validDate.currentValidator.trigger = btnValid;
+				validDate.currentValidator.triggerEvent = "click";
+				validPhone.currentValidator.trigger = btnValid;
+				validPhone.currentValidator.triggerEvent = "click";
+				validNumber.currentValidator.trigger = btnValid;
+				validNumber.currentValidator.triggerEvent = "click";
+				validString.currentValidator.trigger = btnValid;
+				validString.currentValidator.triggerEvent = "click";
+			}
+		]]>
+	</mx:Script>
+	<mx:Accordion width="100%" height="100%" backgroundAlpha="0.5" creationPolicy="all">
+		<mx:VBox label="General v0.1" width="100%" height="100%">
+			<mx:Form x="136" y="38" width="100%" height="100%">
+				<mx:FormHeading label="Property CapsType:"/>
+				<mx:FormItem label="Normal:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput capsType="normal"/>
+						<mx:Label text="No auto convert text. [DEFAULT]"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="UpperCase:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput capsType="upercase"/>
+						<mx:Label text="Auto convert text to uppercase"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="LowerCase:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput capsType="lowercase"/>
+						<mx:Label text="Auto convert text to lowercase"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="InitialCase:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput capsType="init"/>
+						<mx:Label text="Auto convert the first char to uppercase"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormHeading label="Property OnlyRestrict:"/>
+				<mx:FormItem label="None:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput onlyRestrict="none"/>
+						<mx:Label text="No input restrict [DEFAULT]"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Number:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput onlyRestrict="number"/>
+						<mx:Label text="Restrict input : Only Numbers [0-9]"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Text:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput onlyRestrict="alphabetic"/>
+						<mx:Label text="Restrict input : Only Text [^0-9]"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="TextNoSpecial:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput onlyRestrict="alphabeticNoSpecial"/>
+						<mx:Label text="Restrict input : Only Text with no Special characters"/>
+					</mx:HBox>
+				</mx:FormItem>
+			</mx:Form>
+		</mx:VBox>
+		<mx:VBox label="NextFocusOnEnter v0.1" width="100%" height="100%">
+			<mx:Form x="136" y="38" width="100%" height="100%">
+				<mx:FormHeading label="Property NextFocusOnEnter:"/>
+				<mx:FormItem label="TextInput 01:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"/>
+						<mx:Label text="PRESS &lt;Enter&gt; key to execute next focus"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="TextInput 02:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"/>
+						<mx:Label text="PRESS &lt;Enter&gt; key to execute next focus"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="TextInput 03:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"/>
+						<mx:Label text="PRESS &lt;Enter&gt; key to execute next focus"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="TextInput 04:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"/>
+						<mx:Label text="PRESS &lt;Enter&gt; key to execute next focus"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem>
+					<mx:Button label="Last Focus =)"/>
+				</mx:FormItem>
+				<mx:FormHeading label="EnterPressed Event:"/>
+				<mx:FormItem label="Event:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="false" enterPressed="Alert.show('Executou')"/>
+						<mx:Label text="PRESS &lt;Enter&gt; key to dispatch the enterPressed() event"/>
+					</mx:HBox>
+				</mx:FormItem>
+			</mx:Form>
+		</mx:VBox>
+		<mx:VBox label="Auto Validation v0.1" width="100%" height="100%">
+			<mx:Form x="136" y="38" width="100%" height="100%">
+				<mx:FormHeading label="Language - PORTUGUESE [DEFAULT]:"/>
+				<mx:FormItem label="Email:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="portuguese"
+							validator="email"/>
+						<mx:Label/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Phone Number:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="portuguese"
+							validator="phone"/>
+						<mx:Label/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Date:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="portuguese"
+							validator="date"/>
+						<mx:Label text="Format: DD/MM/YYYY"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Number:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="portuguese"
+							validator="number" maxValue="2900" minValue="100"/>
+						<mx:Label text="minValue = 100 and maxValue = 2900"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="String:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="portuguese"
+							validator="string" maxLength="10" minLength="3"/>
+						<mx:Label text="minLength = 3 and maxLength = 10"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormHeading label="Language - ENGLISH:"/>
+				<mx:FormItem label="Email:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="english"
+							validator="email"/>
+						<mx:Label/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Phone Number:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="english"
+							validator="phone"/>
+						<mx:Label/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Date:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="english"
+							validator="date"
+							inputFormat="MM/DD/YYYY"/>
+						<mx:Label text="Format: MM/DD/YYYY"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Number:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="english"
+							validator="number" maxValue="2900" minValue="100"
+							decimalSeparator="." thousandsSeparator=","/>
+						<mx:Label text="minValue = 100 and maxValue = 2900"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="String:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validationLanguage="english"
+							validator="string" maxLength="10" minLength="3"/>
+						<mx:Label text="minLength = 3 and maxLength = 10"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormHeading label="TRIGGER VALIDATION:"/>
+				<mx:FormItem label="Email:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput id="validEmail" nextFocusOnEnter="true"
+							validator="email"
+							/>
+						<mx:Label/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Phone Number:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validator="phone"
+							id="validPhone"
+							/>
+						<mx:Label/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Date:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validator="date"
+							id="validDate"
+							/>
+						<mx:Label text="Format: MM/DD/YYYY"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Number:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validator="number"
+							id="validNumber"
+							/>
+						<mx:Label text="minValue = 100 and maxValue = 2900"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="String:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput nextFocusOnEnter="true"
+							validator="string"
+							id="validString"
+							/>
+						<mx:Label text="minLength = 3 and maxLength = 10"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem>
+					<mx:Button id="btnValid" label="Click to Validate"/>
+				</mx:FormItem>
+			</mx:Form>
+		</mx:VBox>
+		<mx:VBox label="Input Mask v0.2" width="100%" height="100%">
+			<mx:Form x="136" y="38" width="100%" height="100%">
+				<mx:FormHeading label="Custom InputMask:"/>
+				<mx:FormItem label="MasterTextInput:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput id="customMask" inputMask="{inputMask.text}"
+							blankMaskChar="{blankMask.text}"/>
+						<mx:Label text="No auto convert text. [DEFAULT]"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="InputMask:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput id="inputMask" capsType="upercase" text="###-@@@-999/99"
+							change="{customMask.text = customMask.inputMask}"/>
+						<mx:Label text="# - Text no Number ; 9 - Number ; @ Text and Number"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Blank Mask Char:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput capsType="lowercase" text="_" id="blankMask" maxChars="1"/>
+						<mx:Label text="BlankMaskChar [DEFAULT : _]"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="ActualText:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput 
+							text="{customMask.actualText}"/>
+						<mx:Label/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="FullText:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput 
+							text="{customMask.fullText}"/>
+						<mx:Label/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Text:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput 
+							text="{customMask.text}"/>
+						<mx:Label/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:Button id="btnApply" label="Click to Validate"/>
+				<mx:FormHeading label="Examples Input Mask:"/>
+				<mx:FormItem label="Phone Number:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput 
+							inputMask="(99)9999-9999"
+							blankMaskChar=" "/>
+						<mx:Label text="(99)9999-9999"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="CPF:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput 
+							inputMask="999.999.999-99"
+							blankMaskChar=" "/>
+						<mx:Label text="999.999.999-99"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="CEP:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput 
+							inputMask="99999-999"
+							blankMaskChar=" "/>
+						<mx:Label text="99999-999"/>
+					</mx:HBox>
+				</mx:FormItem>
+				<mx:FormItem label="Placa:" width="100%">
+					<mx:HBox width="100%">
+						<ns1:MasterTextInput
+							inputMask="###-9999"
+							blankMaskChar=" "
+							capsType="upercase"/>
+						<mx:Label text="###-9999"/>
+					</mx:HBox>
+				</mx:FormItem>
+			</mx:Form>
+		</mx:VBox>
+	</mx:Accordion>
+
+
+
+	
+</mx:Application>
